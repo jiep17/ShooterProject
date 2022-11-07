@@ -8,6 +8,13 @@ public class JuegoScript : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] ballons;
     public Text timerText;
+    public Button bShoot;
+    public Button bJugarDeNuevo;
+    public Image iApuntador;
+    public Image iGanaste;
+    public Image iPerdiste;
+    public Text PointsValue;
+
 
     public static int points;
     private float startTime;
@@ -15,6 +22,13 @@ public class JuegoScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        iGanaste.gameObject.SetActive(false);
+        iPerdiste.gameObject.SetActive(false);
+        bJugarDeNuevo.gameObject.SetActive(false);
+
+        bShoot.gameObject.SetActive(true);
+        iApuntador.gameObject.SetActive(true);
+
         finnished = false;
         points = 0;
         startTime = Time.time;
@@ -27,15 +41,57 @@ public class JuegoScript : MonoBehaviour
             return;
 
         float t = Time.time - startTime;
-        string minutes = ((int)t / 60).ToString();
+        int inMinutes = ((int)t / 60);
+        if(inMinutes == 1)
+        {
+            // Ha perdido el juego
+            terminarJuego(1);
+            return;
+        }
+
+        string minutes = inMinutes.ToString();
         string seconds = (t % 60).ToString("f2");
 
         timerText.text = minutes + ":" + seconds;
     }
 
+
+    public void reiniciarJuego()
+    {
+        iGanaste.gameObject.SetActive(false);
+        iPerdiste.gameObject.SetActive(false);
+        bJugarDeNuevo.gameObject.SetActive(false);
+
+        bShoot.gameObject.SetActive(true);
+        iApuntador.gameObject.SetActive(true);
+
+        finnished = false;
+        points = 0;
+        PointsValue.text = "00";
+        startTime = Time.time;
+        StartCoroutine(Juego());
+    }
+
+    void terminarJuego(int type)
+    {
+        finnished = true;
+        bShoot.gameObject.SetActive(false);
+        iApuntador.gameObject.SetActive(false);
+        if(type == 1)
+        {
+            iPerdiste.gameObject.SetActive(true);
+        }
+        else
+        {
+            iGanaste.gameObject.SetActive(true);
+        }
+        bJugarDeNuevo.gameObject.SetActive(true);
+
+    }
+
     IEnumerator Juego()
     {
-        if (points < 10)
+        if (points < 20 && !finnished)
         {
             yield return new WaitForSeconds(1);
             for (int i = 0; i < 5; i++)
@@ -50,7 +106,8 @@ public class JuegoScript : MonoBehaviour
             StartCoroutine(Juego());
         } else
         {
-            finnished = true;
+            // Si pasa los 10 puntos entonces ha ganado.
+            terminarJuego(2);
         }
 
     }

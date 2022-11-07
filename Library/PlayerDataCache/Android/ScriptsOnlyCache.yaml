@@ -17,8 +17,6 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARPoseDriver
     - UnityEngine.XR.ARFoundation.ARSession
     - UnityEngine.XR.ARFoundation.ARSessionOrigin
-    Unity.XR.ARKit.Editor.dll:
-    - UnityEditor.XR.ARKit.ARKitSettings
     Unity.XR.Management.Editor.dll:
     - UnityEditor.XR.Management.XRGeneralSettingsPerBuildTarget
     Unity.XR.Management.dll:
@@ -50,6 +48,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: JuegoScript
+    methodName: reiniciarJuego
   - assembly: Assembly-CSharp
     fullTypeName: ColisionScript
     methodName: Shoot
@@ -88,37 +89,37 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1594}
+      Script: {instanceID: 1596}
     - Class: 114
-      Script: {instanceID: 1688}
+      Script: {instanceID: 1690}
     - Class: 114
-      Script: {instanceID: 2788}
+      Script: {instanceID: 2790}
     - Class: 114
-      Script: {instanceID: 3050}
+      Script: {instanceID: 3052}
     - Class: 114
-      Script: {instanceID: 3384}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 3462}
+      Script: {instanceID: 3388}
     - Class: 114
-      Script: {instanceID: 3594}
+      Script: {instanceID: 3466}
     - Class: 114
-      Script: {instanceID: 4110}
+      Script: {instanceID: 3598}
     - Class: 114
-      Script: {instanceID: 6092}
+      Script: {instanceID: 4114}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 5068}
     - Class: 114
-      Script: {instanceID: 6484}
+      Script: {instanceID: 6098}
     - Class: 114
-      Script: {instanceID: 7012}
+      Script: {instanceID: 6460}
     - Class: 114
-      Script: {instanceID: 7358}
+      Script: {instanceID: 6490}
     - Class: 114
-      Script: {instanceID: 8262}
+      Script: {instanceID: 7018}
     - Class: 114
-      Script: {instanceID: 24316}
+      Script: {instanceID: 7364}
     - Class: 114
-      Script: {instanceID: 24514}
+      Script: {instanceID: 8268}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -130,6 +131,10 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -398,6 +403,12 @@ ScriptsOnlyBuild:
     className: AROcclusionManager
   - hash:
       serializedVersion: 2
+      Hash: 6d5481c266236e582b512b3199c04d1d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ColisionScript
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -410,7 +421,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 42c859544254f757bbfa4e25c249aa60
+      Hash: 89c021defb3eba9cb9753dca615bc822
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: JuegoScript
@@ -690,6 +701,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARAnchor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MovimientoScript
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1182,18 +1199,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MovimientoScript
-  - hash:
-      serializedVersion: 2
-      Hash: 6d5481c266236e582b512b3199c04d1d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ColisionScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

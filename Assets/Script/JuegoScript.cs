@@ -86,12 +86,11 @@ public class JuegoScript : MonoBehaviour
             iGanaste.gameObject.SetActive(true);
         }
         bJugarDeNuevo.gameObject.SetActive(true);
-
     }
 
     IEnumerator Juego()
     {
-        if (points < 20 && !finnished)
+        if (points < 20)
         {
             yield return new WaitForSeconds(1);
             for (int i = 0; i < 5; i++)
